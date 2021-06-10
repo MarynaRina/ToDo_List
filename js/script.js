@@ -36,11 +36,13 @@ const render = function() {
         btnTodoCompleted.addEventListener('click', function() {
             item.completed = !item.completed;
             render();
+            localStorage.setItem('todo', JSON.stringify(todoData));
         });
 
         const list = li.querySelector('.todo-remove');
         list.addEventListener('click', function(){
             li.remove('.todo-item');
+            localStorage.removeItem('todo', JSON.stringify(todoData));
         });
 
     });
